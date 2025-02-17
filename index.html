@@ -2,17 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Raise Your Voice for Wayanad</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Email Campaign: Man-Animal Conflict in Wayanad</title>
-    <!-- Fix font loading by using correct URL and adding display=swap -->
+
+    <!-- Including Google Fonts -->
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Including Font Awesome for Icons -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+
     <style>
       :root {
         --primary-color: #9b2c2c;
@@ -40,42 +44,58 @@
         min-height: 100vh;
         line-height: 1.6;
       }
-      textarea {
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-      }
+
       .page-wrapper {
-        max-width: 1200px;
+        max-width: 600px;
         margin: 0 auto;
-        padding: 60px 20px;
+        padding: 30px 15px;
+        box-sizing: border-box;
+        width: 100%;
       }
 
       .container {
         background: rgba(255, 255, 255, 0.98);
-        padding: 40px;
+        padding: 25px;
         border-radius: 20px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        margin-bottom: 40px;
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Ribbon Style */
+      .ribbon {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background: var(--accent-color);
+        color: white;
+        padding: 8px 20px;
+        font-family: "Lora", serif;
+        font-weight: 600;
+        font-size: 0.9em;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        transform: rotate(-8deg);
       }
 
       .campaign-container {
-        max-width: 600px;
+        width: 100%;
         margin: 0 auto;
+        box-sizing: border-box;
       }
 
       h1 {
         font-family: "Cormorant Garamond", serif;
         color: var(--primary-color);
         text-align: center;
-        margin-bottom: 35px;
-        font-size: 3.2em;
+        margin-bottom: 25px;
+        font-size: 2.2em;
         font-weight: 700;
         line-height: 1.2;
         position: relative;
-        padding-bottom: 20px;
+        padding-bottom: 15px;
       }
 
       h1::after {
@@ -84,91 +104,84 @@
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 120px;
+        width: 100px;
         height: 3px;
         background: var(--gradient-warm);
         border-radius: 2px;
       }
 
+      /* Alert Banner */
       .alert-banner {
         background: var(--gradient-warm);
         color: white;
-        padding: 20px;
+        padding: 15px;
         border-radius: 12px;
-        margin-bottom: 30px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
+        margin-bottom: 20px;
         font-family: "Lora", serif;
         font-weight: 500;
+        font-size: 0.9em;
         box-shadow: 0 8px 16px rgba(155, 44, 44, 0.2);
+        text-align: justify;
       }
 
-      .alert-banner i {
-        font-size: 1.8em;
+      /* Name Input */
+      .name-input {
+        margin-bottom: 20px;
       }
 
-      #email-list {
-        border: none;
-        padding: 20px;
-        margin-bottom: 25px;
-        background-color: var(--light-color);
-        border-radius: 12px;
-        box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
-      }
-
-      #email-list div {
-        padding: 12px 15px;
-        border-bottom: 1px solid rgba(155, 44, 44, 0.1);
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        transition: all 0.3s ease;
-      }
-
-      #email-list div:hover {
-        background: rgba(255, 107, 74, 0.05);
-        transform: translateX(5px);
-      }
-
-      #email-list div:before {
-        content: "\f0e0";
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        color: var(--secondary-color);
-        font-size: 1.1em;
-      }
-
-      #email-content {
-        width: 100%;
-        height: 180px;
-        border: 2px solid rgba(155, 44, 44, 0.2);
-        padding: 20px;
-        resize: vertical;
-        background-color: white;
-        border-radius: 12px;
+      .name-input label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
         font-family: "Lora", serif;
-        font-size: 1.05em;
-        line-height: 1.7;
-        color: var(--dark-color);
-        transition: all 0.3s ease;
+        color: var(--primary-color);
+        font-size: 0.9em;
       }
 
-      #email-content:focus {
+      .name-input input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid rgba(155, 44, 44, 0.2);
+        border-radius: 12px;
+        font-size: 1em;
+        font-family: "Lora", serif;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .name-input input:focus {
         border-color: var(--accent-color);
         box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.1);
         outline: none;
       }
 
+      #email-content {
+        width: 100%;
+        border: 2px solid rgba(155, 44, 44, 0.2);
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        font-family: "Lora", serif;
+        font-size: 1em;
+        line-height: 1.7;
+        color: var(--dark-color);
+        transition: all 0.3s ease;
+        min-height: 150px;
+        margin-bottom: 20px;
+        resize: none;
+        box-sizing: border-box;
+        text-align: justify;
+      }
+
       #send-button {
-        padding: 18px 30px;
+        padding: 15px 25px;
         background: var(--gradient-warm);
         color: white;
         border: none;
         cursor: pointer;
         border-radius: 12px;
         font-weight: 700;
-        font-size: 1.1em;
+        font-size: 1em;
         letter-spacing: 0.5px;
         transition: all 0.3s ease;
         display: flex;
@@ -177,7 +190,8 @@
         gap: 12px;
         box-shadow: 0 8px 16px rgba(155, 44, 44, 0.2);
         width: 100%;
-        margin-top: 25px;
+        margin-top: 20px;
+        box-sizing: border-box;
       }
 
       #send-button:hover {
@@ -185,125 +199,84 @@
         box-shadow: 0 12px 20px rgba(155, 44, 44, 0.3);
       }
 
-      #counter {
-        background: linear-gradient(
-          135deg,
-          rgba(155, 44, 44, 0.08),
-          rgba(255, 107, 74, 0.08)
-        );
-        padding: 20px;
-        border-radius: 12px;
-        text-align: center;
-        font-weight: 500;
-        margin-top: 25px;
-        font-family: "DM Sans", sans-serif;
-        color: var(--secondary-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .news-section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 40px;
-        margin-top: 50px;
-      }
-      .news-section2 {
+      .recipient-list {
         margin-top: 20px;
-      }
-      .news-card {
-        background: white;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.4s ease;
-        position: relative;
-      }
-
-      .news-card:hover {
-        transform: translateY(-8px) rotate(1deg);
-        box-shadow: 0 20px 40px rgba(155, 44, 44, 0.15);
-      }
-
-      .news-image {
-        height: 240px;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-      }
-
-      .news-content {
-        padding: 30px;
-      }
-
-      .news-date {
-        color: var(--accent-color);
-        font-size: 0.95em;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 15px;
-      }
-
-      .news-title {
         font-family: "Lora", serif;
-        margin: 0 0 15px 0;
-        font-size: 1.4em;
-        color: var(--primary-color);
-        line-height: 1.4;
-      }
-
-      .news-card p {
+        font-size: 0.9em;
         color: var(--dark-color);
         line-height: 1.7;
-        margin: 0;
+        text-align: justify;
+      }
+
+      .recipient-list i {
+        color: var(--primary-color);
+        margin: 0 8px;
+      }
+
+      .share-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .share-buttons a {
+        display: inline-block;
+        background: var(--accent-color);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.9em;
+        transition: background 0.3s ease;
+      }
+
+      .share-buttons a:hover {
+        background: var(--primary-color);
+      }
+
+      .designed-by-banner {
+        text-align: center;
+        font-family: "Lora", serif;
+        font-size: 0.8em;
+        color: var(--dark-color);
+        margin-top: 40px;
+        padding: 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .designed-by-banner a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .designed-by-banner a:hover {
+        color: var(--accent-color);
       }
 
       @media (max-width: 768px) {
         .page-wrapper {
-          padding: 30px 15px;
-        }
-
-        .container {
-          padding: 25px;
-        }
-
-        h1 {
-          font-size: 2.2em;
-          width: 100%;
-        }
-
-        .news-section {
-          grid-template-columns: 1fr;
-        }
-
-        #send-button {
-          padding: 15px 25px;
-        }
-
-        .alert-banner {
-          padding: 15px;
-          font-size: 0.9em;
-        }
-
-        #email-content {
-          font-size: 1em;
-          padding: 15px;
-        }
-
-        .news-content {
           padding: 20px;
         }
 
-        .news-title {
-          font-size: 1.2em;
+        h1 {
+          font-size: 1.8em;
         }
 
-        .news-date {
-          font-size: 0.85em;
+        .alert-banner,
+        .name-input input,
+        #email-content,
+        #send-button,
+        .recipient-list,
+        .share-buttons a,
+        .designed-by-banner {
+          font-size: 0.9em;
+          padding: 10px;
+        }
+
+        #send-button {
+          padding: 12px 20px;
         }
       }
     </style>
@@ -311,130 +284,205 @@
   <body>
     <div class="page-wrapper">
       <div class="container campaign-container">
-        <h1>Man-Animal Conflict in Wayanad</h1>
+        <!-- Ribbon -->
+        <div class="ribbon">KCYM Mullenkolly Mekhala</div>
 
+        <h1>Raise Your Voice for Wayanad</h1>
+
+        <!-- Alert Banner -->
         <div class="alert-banner">
-          <i class="fas fa-exclamation-triangle"></i>
-          <p>
-            Critical Alert: Significant increase in wildlife encounters reported
-            in the region
+          <p style="text-indent: 50px">
+            വയനാട് ജില്ലയിൽ വർദ്ധിച്ചു വരുന്ന വന്യമൃഗ ശല്യത്തിന് പരിഹാരം കാണണം
+            എന്നും മനുഷ്യൻ്റെ മൗലിക അവകാശങ്ങൾ നിഷേധിക്കപ്പെടുന്ന സാഹചര്യങ്ങൾ
+            ഒഴിവാക്കാൻ ആവശ്യമായ നടപടികൾ സ്വീകരിക്കണം എന്ന് താഴെ പറയുന്ന
+            അധികാരികളെ അറിയിക്കാൻ ശ്രമിക്കുക ആണ് ഈ കാമ്പയിൻ വഴി ശ്രമിക്കുന്നത്.
+            നിങ്ങളുടെ പേര് ടൈപ്പ് ചെയ്ത് സെൻ്റ് അമർത്തിയാൽ നിങ്ങളുടെ ഫോണിലെ
+            ഇമെയിൽ ആപ് തുറന്നു വരും. അവിടെയും സെൻ്റ് ബട്ടൺ അമർത്തിയാൽ
+            നിശ്ചയിക്കപ്പെട്ട ഇമെയിൽ അഡ്രസുകളിലേക്ക് ഇമെയിൽ പോകുന്നത്
+            ആയിരിക്കും. വയനാടിന് വേണ്ടി നമുക്ക് ഒരുമിക്കാം. കൂടുതൽ ആളുകളിലേക്ക്
+            ലിങ്ക് ഷെയർ ചെയ്യാൻ ശ്രദ്ധിക്കുമല്ലോ
           </p>
         </div>
 
-        <div id="email-list"></div>
-
-        <textarea id="email-content" readonly>
-Dear Recipient,
-
-The increasing man-animal conflict in Wayanad is a serious concern. We need to find sustainable solutions to protect both humans and wildlife.
-
-Sincerely,
-Concerned Citizen
-        </textarea>
-
-        <button id="send-button">
-          <i class="fas fa-paper-plane"></i>
-          Send Campaign Email
-        </button>
-
-        <div id="counter">
-          <i class="fas fa-chart-line"></i>
-          Campaign Progress: <span id="email-count">0</span> Emails Sent
+        <!-- Name Input Field -->
+        <div class="name-input">
+          <label for="sender-name">Your Name:</label>
+          <input type="text" id="sender-name" placeholder="Enter your name" />
         </div>
-      </div>
-      <br />
-      <div class="container">
-        <div class="news-section news-section2">
-          <div class="news-card">
-            <div
-              class="news-image"
-              style="background-image: url('/api/placeholder/400/200')"
-            ></div>
-            <div class="news-content">
-              <div class="news-date">
-                <i class="far fa-calendar-alt"></i>
-                February 12, 2025
-              </div>
-              <h3 class="news-title">
-                New Wildlife Corridor Protection Measures
-              </h3>
-              <p>
-                Comprehensive steps implemented to safeguard traditional
-                elephant corridors in the Wayanad region, ensuring safe passage
-                for wildlife...
-              </p>
-            </div>
-          </div>
 
-          <div class="news-card">
-            <div
-              class="news-image"
-              style="background-image: url('/api/placeholder/400/200')"
-            ></div>
-            <div class="news-content">
-              <div class="news-date">
-                <i class="far fa-calendar-alt"></i>
-                February 10, 2025
-              </div>
-              <h3 class="news-title">Advanced Alert System Deployment</h3>
-              <p>
-                State-of-the-art early warning system launched to monitor and
-                notify communities about wildlife movement patterns...
-              </p>
-            </div>
-          </div>
+        <!-- Email Content (Readonly) -->
+        <textarea id="email-content" readonly>
+Dear Sir or Madam, 
+	I am contacting you because as citizens from Wayanad, we are facing a serious and desperate situation. The conflict between human beings and animals in this area has dramatically worsened and we fear that it has reached a point of no return. This predicament puts us and our life sustaining assets at risk. Recently, I am saddened to inform you that wild animal attacks have collectively taken several lives, while many others have been savagely injured. There is an overwhelming sense of anxiety which makes it practically impossible to go about our routine activities.
 
-          <div class="news-card">
-            <div
-              class="news-image"
-              style="background-image: url('/api/placeholder/400/200')"
-            ></div>
-            <div class="news-content">
-              <div class="news-date">
-                <i class="far fa-calendar-alt"></i>
-                February 8, 2025
-              </div>
-              <h3 class="news-title">Community Conservation Initiative</h3>
-              <p>
-                Local experts lead innovative workshop series on wildlife
-                coexistence strategies, drawing unprecedented community
-                participation...
-              </p>
-            </div>
-          </div>
+	This matter resultantly concerns the Constitution of India and the most basic aspects of personal liberty and life. We now literally cannot feel safe to even step out of our homes. The publicity surrounding animal attacks has rendered us prisoners of our own houses and has made it possible for wild animals to terrorise us without any consequences, especially during the night. Such developments forbear our chances of accessing necessary provisions, earning money and interacting with the community.
+
+	The vital role of wildlife protection is something we understand and it is commendable to see the efforts made towards protecting our forests. However, in its current state, the situation is distressing and needs action. It is our conviction that there is a need for a delicate balance to be struck between human risk factors and the protection of wildlife.  We are not suggesting the extermination of wildlife, but rather that there be policies that guarantee wild animals only remain in the landscape's set up forests. This calls for effective measures that can assist in managing the borders where human settlements come across the forest ecosystem.
+
+	It is critical that you act this moment and decisively resolve this of the crisis. We have laid siege to you in as far as our appeal goes, for taking concrete steps in alleviating human wildlife conflict such as erecting proper fencing, expanding patrols, and conducting awareness campaigns among the public. We expect you to respond to our appeal by safeguarding our essential freedoms such as right to life, autonomy, and mobility without the anxiety of being assaulted by wild animals. We appeal you to maintain the ecological balance and make sure that the forests remain the home of wild animals to avoid pushing deeper into of the human settlements.
+
+	We, the residents of Wayanad, face day to day threats on our lives. Many more will perish if we don’t take timely action. We as citizens expect a peaceful life away from conflicts and violence, so we hope appropriate measures will be taken to protect us.
+
+Best Regards,
+[Your Name]
+    </textarea
+        >
+
+        <!-- Send Button -->
+        <button id="send-button">SEND</button>
+
+        <!-- Share Buttons -->
+        <div class="share-buttons">
+          <a
+            href="https://wa.me/?text=വയനാടിന് വേണ്ടി ശബ്ദമുയർത്താം. Raise Your Voice for Wayanad https://wildlife-kcym.vercel.app/"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a
+            href="mailto:?subject=Raise Your Voice for Wayanad&body=വയനാടിന് വേണ്ടി ശബ്ദമുയർത്താം. Raise Your Voice for Wayanad https://wildlife-kcym.vercel.app/"
+            target="_blank"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=https://wildlife-kcym.vercel.app/"
+            target="_blank"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/?url=https://wildlife-kcym.vercel.app/"
+            target="_blank"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://twitter.com/intent/tweet?text=വയനാടിന് വേണ്ടി ശബ്ദമുയർത്താം. Raise Your Voice for Wayanad&url=https://wildlife-kcym.vercel.app/"
+            target="_blank"
+          >
+            <i class="fab fa-x-twitter"></i> X
+          </a>
+        </div>
+
+        <!-- Recipients List -->
+        <div class="recipient-list">
+          President of India <i class="fas fa-address-book"></i> Prime
+          Minister's Office <i class="fas fa-address-book"></i> Ministry of
+          Environment, Forest and Climate Change
+          <i class="fas fa-address-book"></i> National Human Rights Commission
+          <i class="fas fa-address-book"></i> Minister of Agriculture, India
+          <i class="fas fa-address-book"></i> Rahul Gandhi
+          <i class="fas fa-address-book"></i> Priyanka Gandhi Vadra
+          <i class="fas fa-address-book"></i> Governor of Kerala
+          <i class="fas fa-address-book"></i> Chief Minister of Kerala
+          <i class="fas fa-address-book"></i> Kerala Human Rights Commission
+          <i class="fas fa-address-book"></i> Minister for Forests, Kerala
+          <i class="fas fa-address-book"></i> Minister of Agriculture, Kerala
+          <i class="fas fa-address-book"></i> V D Satheesan, MLA
+          <i class="fas fa-address-book"></i> District Collector, Wayanad
+          <i class="fas fa-address-book"></i> IC Balakrishnan, MLA
+          <i class="fas fa-address-book"></i> O R Kelu, MLA
+          <i class="fas fa-address-book"></i>
+          T Siddique, MLA
+        </div>
+
+        <!-- Designed By Banner -->
+        <div class="designed-by-banner">
+          Created By
+          <a href="https://www.oronium.com/" target="_blank">Don Jose Mathew</a
+          >, Christy K Kurian
         </div>
       </div>
     </div>
 
     <script>
-      const emailList = document.getElementById("email-list");
       const emailContent = document.getElementById("email-content");
       const sendButton = document.getElementById("send-button");
-      const emailCount = document.getElementById("email-count");
-      let counter = 0;
+      const senderNameInput = document.getElementById("sender-name");
 
-      const emails = [
-        "email1@example.com",
-        "email2@example.com",
-        // ... add more emails
+      // Store the initial email content template
+      const emailContentTemplate = emailContent.value;
+
+      // Mapping recipient names to their email addresses
+      const recipients = [
+        { name: "Governor of Kerala", email: "keralarajbhavan@gmail.com" },
+        {
+          name: "Chief Minister of Kerala",
+          email: "chiefminister@kerala.gov.in",
+        },
+        {
+          name: "Minister for Forests, Kerala",
+          email: "min.for@kerala.gov.in",
+        },
+        {
+          name: "Kerala Human Rights Commission",
+          email: "hrckeralatvm@gmail.com",
+        },
+        { name: "National Human Rights Commission", email: "cr.nhrc@nic.in" },
+        { name: "Prime Minister's Office", email: "appt.pmo@nic.in" },
+        {
+          name: "Ministry of Environment, Forest and Climate Change",
+          email: "mefcc@gov.in",
+        },
+        { name: "President of India", email: "us.petitions@rb.nic.in" },
+        { name: "Priyanka Gandhi Vadra", email: "pgv@inc.in" },
+        { name: "Rahul Gandhi", email: "office@rahulgandhi.in" },
+        {
+          name: "IC Balakrishnan, MLA",
+          email: "icbalakrishnan@niyamasabha.nic.in",
+        },
+        { name: "O R Kelu, MLA", email: "orkelu@niyamasabha.nic.in" },
+        { name: "T Siddique, MLA", email: "tsiddiqu@niyamasabha.nic.in" },
+        {
+          name: "KCYM Mullenkolly Mekhala",
+          email: "kcymmullankollymekhala@gmail.com",
+        },
+        {
+          name: "Minister of Agriculture, India",
+          email: "agrimin.india@gmail.com",
+        },
+        {
+          name: "Minister of Agriculture, Kerala",
+          email: "min.agri@kerala.gov.in",
+        },
+        { name: "V D Satheesan, MLA", email: "vdsatheesan@niyamasabha.nic.in" },
+        {
+          name: "District Collector, Wayanad",
+          email: "dcwayanad@kerala.gov.in",
+        },
       ];
 
-      emails.forEach((email) => {
-        const emailDiv = document.createElement("div");
-        emailDiv.textContent = email;
-        emailList.appendChild(emailDiv);
+      // Update email content dynamically as the user types their name
+      senderNameInput.addEventListener("input", () => {
+        const senderName = senderNameInput.value.trim() || "[Your Name]";
+        const updatedEmailContent = emailContentTemplate.replace(
+          "[Your Name]",
+          senderName
+        );
+        emailContent.value = updatedEmailContent;
       });
 
       sendButton.addEventListener("click", () => {
-        const mailtoLink = `mailto:${emails.join(
-          ","
-        )}?subject=Man-Animal Conflict in Wayanad&body=${encodeURIComponent(
-          emailContent.value
-        )}`;
-        window.open(mailtoLink);
+        const senderName = senderNameInput.value.trim();
+        if (!senderName) {
+          alert("Please enter your name before sending the email.");
+          return;
+        }
 
-        counter++;
-        emailCount.textContent = counter;
+        // Replace [Your Name] in the email body
+        const emailBodyTemplate = emailContentTemplate.replace(
+          "[Your Name]",
+          senderName
+        );
+        const emailBody = encodeURIComponent(emailBodyTemplate);
+        const subject = encodeURIComponent(
+          "Request for Action: Addressing the Escalating Human-Wildlife Conflict in Wayanad"
+        );
+        const recipientEmails = recipients.map((r) => r.email).join(",");
+
+        const mailtoLink = `mailto:${recipientEmails}?subject=${subject}&body=${emailBody}`;
+        window.open(mailtoLink, "_blank");
       });
     </script>
   </body>
